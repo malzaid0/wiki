@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Page(models.Model):
@@ -10,4 +11,4 @@ class Page(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return f"http://127.0.0.1:8000/page/detail/{self.id}"
+        return reverse("page-detail", kwargs={"page_id":self.id})
